@@ -16,18 +16,18 @@ GOOD LUCK 😀
 */
 
 // TEST 1
-const markMass = 78;
-const markHeight = 1.69;
+// const markMass = 78;
+// const markHeight = 1.69;
 
-const johnMass = 92;
-const johnHeight = 1.95;
+// const johnMass = 92;
+// const johnHeight = 1.95;
 
 // TEST 2
-// const markMass = 95;
-// const markHeight = 1.88;
+const markMass = 95;
+const markHeight = 1.88;
 
-// const johnMass = 85;
-// const johnHeight = 1.76;
+const johnMass = 85;
+const johnHeight = 1.76;
 
 const markBMI = markMass / (markHeight * markHeight);
 const johnBMI = johnMass / (johnHeight * johnHeight);
@@ -35,7 +35,7 @@ const johnBMI = johnMass / (johnHeight * johnHeight);
 const markHigherBMI = markBMI > johnBMI;
 
 if (markHigherBMI) {
-    console.log(`Mark's BMI ${Math.round(markBMI)} is higher than John's ${Math.round(johnBMI)}!`);
+    console.log(`Mark's BMI ${markBMI} is higher than John's ${johnBMI}!`);
 } else {
-    console.log(`John's BMI ${Math.round(johnBMI)} is higher than Mark's ${Math.round(markBMI)}!`);
+    console.log(`John's BMI ${johnBMI} is higher than Mark's ${markBMI}!`);
 }
