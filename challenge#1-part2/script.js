@@ -47,6 +47,7 @@ const calcAverage = (score1, score2, score3) => {
     return (score1 + score2 + score3) / 3;
 }
 
+// passing the scores of each team to calculate the average with the calcAverage function
 // TEST 1
 // const dolphinsAverage = calcAverage(44, 23, 71);
 // const koalasAverage = calcAverage(65, 54, 49)
@@ -55,6 +56,7 @@ const calcAverage = (score1, score2, score3) => {
 const dolphinsAverage = calcAverage(85, 54, 41);
 const koalasAverage = calcAverage(23, 34, 27);
 
+//Checking if one of the team win according wit the rules
 function checkWinner (avgDolphins, avgKoalas) {
     if (avgDolphins >= (avgKoalas * 2)) {
         return `Dolphins win ${avgDolphins} to ${avgKoalas}`;
@@ -65,4 +67,5 @@ function checkWinner (avgDolphins, avgKoalas) {
     }
 }
 
+// log the result to the console
 console.log(checkWinner(dolphinsAverage, koalasAverage));
