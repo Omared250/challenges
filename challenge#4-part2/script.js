@@ -39,3 +39,37 @@ length of the array (because that's the number of elements)
 Call the function with the 'totals' array
 
 GOOD LUCK 😀 */
+
+// array of bills
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+// array of tips
+const tips = [];
+
+// array of totals
+const totals = [];
+
+// function to calculate the tips
+const calcTip = (bill) => {
+    return bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.20;
+}
+
+// Looping bills to calculate the tips and push it into tips array
+for (let i = 0; i < bills.length; i++) {
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);  
+}
+
+// calculate the average of an array
+const calcAverage = (arr) => {
+    let sum = 0;
+    for (let j = 0; j < arr.length; j++) {
+        sum += arr[j];
+    }
+    return sum / arr.length;
+}
+
+console.log(bills, tips, totals);
+console.log(`The average of the Totals is ${calcAverage(totals)}`);
+
