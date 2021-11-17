@@ -22,14 +22,17 @@ GOOD LUCK 😀 */
 const temps = [12, 5, -5, 0, 4];
 
 const printForecast = (arr) => {
-  let days = 1;
-  let messages = [];
+  // let days = 1;
+  // let messages = [];
+  let str = "";
   for (let i = 0; i < arr.length; i++) {
+    str = str + `${arr[i]}°C in ${i + 1} days! ... `;
     // console.log(`... ${arr[i]}°C in ${days++} days`);
-    const temp = `... ${arr[i]}°C in ${days++} days`;
-    messages.push(temp);
+    // const temp = `... ${arr[i]}°C in ${days++} days`;
+    // messages.push(temp);
   }
-  return messages;
+  // return messages;
+  return `... ${str}`;
 };
 
 console.log(printForecast(temps));
