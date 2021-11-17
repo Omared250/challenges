@@ -13,6 +13,7 @@ string like the above to the console. Try it with both test datasets.
 into sub-problems!
 
 Test data:
+
 § Data 1: [17, 21, 23]
 § Data 2: [12, 5, -5, 0, 4]
 
