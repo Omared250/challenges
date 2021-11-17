@@ -17,3 +17,19 @@ Test data:
 § Data 2: [12, 5, -5, 0, 4]
 
 GOOD LUCK 😀 */
+
+// const temps = [17, 21, 23];
+const temps = [12, 5, -5, 0, 4];
+
+const printForecast = (arr) => {
+  let days = 1;
+  let messages = [];
+  for (let i = 0; i < arr.length; i++) {
+    // console.log(`... ${arr[i]}°C in ${days++} days`);
+    const temp = `... ${arr[i]}°C in ${days++} days`;
+    messages.push(temp);
+  }
+  return messages;
+};
+
+console.log(printForecast(temps));
