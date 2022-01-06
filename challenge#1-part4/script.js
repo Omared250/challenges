@@ -79,7 +79,7 @@ const game = {
     },
 };
 
-// teams
+// teams 
 const [players1, players2] = game.players;
 // console.log(players1, players2);
 
@@ -96,18 +96,25 @@ const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 // console.log(players1Final);
 
 // Creating variables base on an object with destructuring
-const {team1, x: draw, team2} = game.odds;
+// const {team1, x: draw, team2} = game.odds;
+const {odds : {team1, x: draw, team2}} = game;
 // console.log(team1, draw, team2);
 
 // function to now how many goals
-const printGoals = function(goals, ...numPlayerNames) {
-
-    const [score, ...others] = [...goals];
-    console.log(`The Score was : ${score}`);
-
+const printGoals = function(...numPlayerNames) {
     for (let  i = 0;  i < numPlayerNames.length;  i++) {
         console.log(numPlayerNames[i]);
     }
+    console.log(`${numPlayerNames.length} goals were scored`);
 }
 // calling the function
-printGoals(game.score, game.scored);
+printGoals(...game.scored);
+
+// Wich team won
+// if (game.odds.team1 < game.odds.team2) {
+//     console.log('Bayern Munich won!!!');
+// } else {
+//     console.log('Dourmont Won!!');
+// }
+team1 < team2 && console.log('Team 1 is more likely to win!!!');
+team2 < team1 && console.log('Team 2 is more likely to win!!!');
