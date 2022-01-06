@@ -4,6 +4,7 @@ We're building a football betting app (soccer for my American friends 😅)!
 
 Suppose we get data from a web service about a certain game ('game' variable on
 next page). In this challenge we're gonna work with that data.
+
 Your tasks:
 
 1. Create one player array for each team (variables 'players1' and
@@ -69,12 +70,27 @@ const game = {
     ],
     ],
     score: '4:0',
-    scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
-    'Hummels'],
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
     date: 'Nov 9th, 2037',
     odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
     },
-    };
+};
+
+// teams
+const [players1, players2] = game.players;
+// console.log(players1, players2);
+
+// goalKepper and fieldPLayers
+const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
+
+// Joining all players
+const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
+
+// Copyng an creating new array
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(players1Final);
