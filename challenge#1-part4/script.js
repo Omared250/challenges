@@ -97,4 +97,17 @@ const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 
 // Creating variables base on an object with destructuring
 const {team1, x: draw, team2} = game.odds;
-console.log(team1, draw, team2);
+// console.log(team1, draw, team2);
+
+// function to now how many goals
+const printGoals = function(goals, ...numPlayerNames) {
+
+    const [score, ...others] = [...goals];
+    console.log(`The Score was : ${score}`);
+
+    for (let  i = 0;  i < numPlayerNames.length;  i++) {
+        console.log(numPlayerNames[i]);
+    }
+}
+// calling the function
+printGoals(game.score, game.scored);
