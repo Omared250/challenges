@@ -94,3 +94,7 @@ const allPlayers = [...players1, ...players2];
 // Copyng an creating new array
 const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 // console.log(players1Final);
+
+// Creating variables base on an object with destructuring
+const {team1, x: draw, team2} = game.odds;
+console.log(team1, draw, team2);
