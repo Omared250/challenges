@@ -74,6 +74,8 @@ const game = {
     },
 };
 
+/// My answers
+
 // 1). Loopin array with the for of
 const players = game.scored;
 let goal = 0;
@@ -89,3 +91,13 @@ for (const value of oddValues) {
     totalOdd += value
 }
 console.log(`The average of the odds is: ${(totalOdd / oddValues.length).toFixed(2)}`);
+
+// 3). Print to the console without hardcode
+const bayerVictoryOdd = `Odd of victory ${game.team1}: ${game.odds.team1}`
+const drawOdd = `Odd of draw: ${game.odds.x}`
+const borussiaVictoryOdd = `Odd of victory ${game.team2}: ${game.odds.team2}`
+console.log(bayerVictoryOdd);
+console.log(drawOdd);
+console.log(borussiaVictoryOdd);
+
+//4). Bonus creating an object player names as properties and goals as values
