@@ -77,12 +77,15 @@ const game = {
 /// My answers
 
 // 1). Loopin array with the for of
-const players = game.scored;
-let goal = 0;
-for (const player of players) {
-    goal += 1;
-    console.log(`Goal ${goal}: ${player}`);
+for (const [i, player] of game.scored.entries()) {
+    console.log(`Goal ${i + 1}: ${player}`);
 }
+// const players = game.scored;
+// let goal = 0;
+// for (const player of players) {
+//     goal += 1;
+//     console.log(`Goal ${goal}: ${player}`);
+// }
 
 // 2). Loooping and object
 const oddValues = Object.values(game.odds);
@@ -93,11 +96,9 @@ for (const value of oddValues) {
 console.log(`The average of the odds is: ${(totalOdd / oddValues.length).toFixed(2)}`);
 
 // 3). Print to the console without hardcode
-const bayerVictoryOdd = `Odd of victory ${game.team1}: ${game.odds.team1}`
-const drawOdd = `Odd of draw: ${game.odds.x}`
-const borussiaVictoryOdd = `Odd of victory ${game.team2}: ${game.odds.team2}`
-console.log(bayerVictoryOdd);
-console.log(drawOdd);
-console.log(borussiaVictoryOdd);
+for (const [team, odd] of Object.entries(game.odds)) {
+    const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+    console.log(`Odd of ${teamStr}: ${odd}`);
+}
 
 //4). Bonus creating an object player names as properties and goals as values
