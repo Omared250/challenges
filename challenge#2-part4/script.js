@@ -81,3 +81,11 @@ for (const player of players) {
     goal += 1;
     console.log(`Goal ${goal}: ${player}`);
 }
+
+// 2). Loooping and object
+const oddValues = Object.values(game.odds);
+let totalOdd = 0;
+for (const value of oddValues) {
+    totalOdd += value
+}
+console.log(`The average of the odds is: ${(totalOdd / oddValues.length).toFixed(2)}`);
