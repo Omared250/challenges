@@ -73,3 +73,11 @@ const game = {
         team2: 6.5,
     },
 };
+
+// 1). Loopin array with the for of
+const players = game.scored;
+let goal = 0;
+for (const player of players) {
+    goal += 1;
+    console.log(`Goal ${goal}: ${player}`);
+}
