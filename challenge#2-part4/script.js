@@ -104,6 +104,7 @@ for (const [team, odd] of Object.entries(game.odds)) {
 //4). Bonus creating an object player names as properties and goals as values
 const scorers = {};
 for (const player of game.scored) {
+    // the player inside the [] is bacause with ES6 we can assign the name of the properties of an object with the []
     scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 console.log(scorers);
