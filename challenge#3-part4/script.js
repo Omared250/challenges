@@ -37,3 +37,11 @@ const gameEvents = new Map([
     [80, '⚽ GOAL'],
     [92, '🔶 Yellow card'],
 ]);
+
+// 1). Create an array of events without any duplicate
+const events = new Set([...gameEvents.values()]);
+console.log(events);
+
+// 2). remove a Yellow card from minut 64
+gameEvents.delete(64);
+console.log(gameEvents);
