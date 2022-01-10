@@ -45,3 +45,16 @@ console.log(events);
 // 2). remove a Yellow card from minut 64
 gameEvents.delete(64);
 console.log(gameEvents);
+
+// 3). Looking the average of the events
+let totalMinuts = 0;
+for (const minut of [...gameEvents.keys()]) {
+    totalMinuts += minut;
+}
+console.log(`An event happened, on average, every ${(totalMinuts / 90).toFixed(2)} minutes`);
+
+// 4). looping if the event happened on the first half or the second half of the match
+for (const [key, value] of gameEvents) {
+    const eventStr = key > 45 ? '[SECOND HALF]' : '[FIRST HALF]';
+    console.log(`${eventStr} ${key}: ${value}`);
+}
