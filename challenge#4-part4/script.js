@@ -10,9 +10,9 @@ insert the elements), and conversion will happen when the button is pressed.
 Test data (pasted to textarea, including spaces):
 
 underscore_case
-first_name
+  first_name
 Some_Variable
-calculate_AGE
+  calculate_AGE
 delayed_departure
 
 Should produce this output (5 separate console.log outputs):
@@ -36,3 +36,23 @@ Afterwards, test with your own test data!
 
 GOOD LUCK 😀
 */
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const textarea = document.querySelector('textarea');
+textarea.classList.add('text')
+
+const buttonArea = document.querySelector('button');
+buttonArea.classList.add('button')
+
+document.querySelector('button').addEventListener('click', function() {
+    const text = document.querySelector('textarea').value;
+    const rows = text.split('\n');
+    
+    // Looping the rows
+    for (const [i, row] of rows.entries()) {
+        const [a, b] = row.toLowerCase().trim().split('_');
+        const output = `${a}${b.replace(b[0], b[0].toUpperCase())}`;
+        console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+    }
+})
