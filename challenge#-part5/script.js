@@ -18,6 +18,8 @@ GOOD LUCK 😀 */
     const header = document.querySelector('h1');
     header.style.color = 'red';
 
+    /* The event listener can have acces to the ('header') variable because 
+    the clouser give it a conexion even if the variable do not exists any more in the call stack*/
     document.querySelector('body').addEventListener('click', function() {
         header.style.color = 'blue';
     })
