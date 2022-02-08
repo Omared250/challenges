@@ -40,8 +40,15 @@ GOOD LUCK 😀
 */
 
 // removing the first and last element from a copy of the origin array
-const kateDogs = [4, 1, 15, 8, 3];
-const juliaDogs = [3, 5, 2, 12, 7];
+
+/// Data 1:
+// const kateDogs = [4, 1, 15, 8, 3];
+// const juliaDogs = [3, 5, 2, 12, 7];
+
+/// Data 2:
+const kateDogs = [9, 16, 6, 8, 3];
+const juliaDogs = [10, 5, 6, 1, 4];
+
 const copyJuliaDogs = juliaDogs.slice().slice(1, -1);
 
 // creating one array joining the two arrays
