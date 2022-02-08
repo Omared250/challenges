@@ -62,4 +62,4 @@ const checkDogs = function(dogAges){
     });
 }
 
-checkDogs(juliaAndKateDogs)
+checkDogs(juliaAndKateDogs);
