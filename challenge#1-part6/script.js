@@ -47,3 +47,12 @@ const copyJuliaDogs = juliaDogs.slice().slice(1, -1);
 // creating one array joining the two arrays
 const juliaAndKateDogs = copyJuliaDogs.concat(kateDogs);
 console.log(juliaAndKateDogs);
+
+const checkDogs = function(dogAges){
+    dogAges.forEach(function(age, i){
+        const str = age >= 3 ? `Dog number ${i + 1} is an adult, and is ${age} years old` : `Dog number ${i + 1} is still a puppy`;
+        console.log(str);
+    });
+}
+
+checkDogs(juliaAndKateDogs)
