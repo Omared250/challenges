@@ -39,27 +39,19 @@ GOOD LUCK 😀
 
 */
 
-// removing the first and last element from a copy of the origin array
+const checkDogs = function(dogsJulia, dogsKate) {
 
-/// Data 1:
-// const kateDogs = [4, 1, 15, 8, 3];
-// const juliaDogs = [3, 5, 2, 12, 7];
+    const dogsJuliaCorrect = dogsJulia.slice();
+    dogsJuliaCorrect.splice(0,1);
+    dogsJuliaCorrect.splice(-2);
+    console.log(dogsJuliaCorrect);
 
-/// Data 2:
-const kateDogs = [9, 16, 6, 8, 3];
-const juliaDogs = [10, 5, 6, 1, 4];
-
-const copyJuliaDogs = juliaDogs.slice().slice(1, -1);
-
-// creating one array joining the two arrays
-const juliaAndKateDogs = copyJuliaDogs.concat(kateDogs);
-console.log(juliaAndKateDogs);
-
-const checkDogs = function(dogAges){
-    dogAges.forEach(function(age, i){
-        const str = age >= 3 ? `Dog number ${i + 1} is an adult, and is ${age} years old` : `Dog number ${i + 1} is still a puppy`;
+    //Joining two arrays
+    const dogs = dogsJuliaCorrect.concat(dogsKate);
+    dogs.forEach(function(age, i){
+        const str = age >= 3 ? `Dog number ${i + 1} is an adul, and is ${age} years old` : `Dog number ${i + 1} is still a puppy`;
         console.log(str);
     });
 }
-
-checkDogs(juliaAndKateDogs);
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3])
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
