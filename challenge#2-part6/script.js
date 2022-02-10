@@ -37,7 +37,7 @@ const calcAverageHumanAge = function(ages) {
         return acc + age / arr.length;
     }, 0)
 
-    return `The average of the dogs in human ages is: ${humanAge}`;
+    return `The average is ${Math.trunc(humanAge)}`;
 };
 
 // console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
