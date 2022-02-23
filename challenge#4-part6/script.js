@@ -72,20 +72,19 @@ dogs.forEach((dog) => {
 console.log(dogs);
 
 // 2.
-const sarahDog = dogs.find(dog => dog.owners.some(owner => owner === 'Sarah'))
+const sarahDog = dogs.find(dog => 
+    dog.owners
+    .some(owner => owner === 'Sarah')
+)
 
 console.log(sarahDog);
-
-const checkingFood = function(dog) {
-    if (dog.curFood < dog.recommendedFood * 0.90) {
-        console.log('The dog is eating too little');
-    } else if(dog.curFood > dog.recommendedFood * 1.10) {
-        console.log('The dog is eating too much');
-    } else {
-        console.log('The dog is eating a normal portion of food');
-    }
-}
-checkingFood(sarahDog);
+console.log(
+    `Sarah's dog is eating too ${
+        sarahDog.curFood > (sarahDog.recommendedFood * 1.10) ?
+        'much' :
+        'little'
+    }`
+);
 
 // 3.
 const ownersEatTooMuch = dogs
