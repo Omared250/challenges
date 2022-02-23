@@ -104,3 +104,7 @@ console.log(strTooMuch);
 
 const strTooLittle = `${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`
 console.log(strTooLittle);
+
+// 5.
+const rightPortionFood = dogs.some(dog => dog.curFood > (dog.recommendedFood * 0.90) && dog.curFood < (dog.recommendedFood * 1.10));
+console.log(rightPortionFood);
