@@ -78,7 +78,7 @@ console.log(sarahDog);
 
 const checkingFood = function(dog) {
     if (dog.curFood < dog.recommendedFood * 0.90) {
-        console.log('The dog is eating too litle');
+        console.log('The dog is eating too little');
     } else if(dog.curFood > dog.recommendedFood * 1.10) {
         console.log('The dog is eating too much');
     } else {
@@ -86,3 +86,14 @@ const checkingFood = function(dog) {
     }
 }
 checkingFood(sarahDog);
+
+// 3.
+const ownersEatTooMuch = dogs
+    .filter(dog => dog.curFood > (dog.recommendedFood * 1.10))
+    .flatMap(dog => dog.owners)
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+    .filter(dog => dog.curFood < (dog.recommendedFood * 0.90))
+    .flatMap(dog => dog.owners)
+console.log(ownersEatTooLittle);
