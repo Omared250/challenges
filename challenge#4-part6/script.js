@@ -122,3 +122,9 @@ const dogWithGoodAmountOfFood = dogs.filter(dog =>
     dog.curFood < (dog.recommendedFood * 1.10)
 );
 console.log(dogWithGoodAmountOfFood);
+
+// 8.
+const sortedDogs = dogs
+    .slice()
+    .sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(sortedDogs);
