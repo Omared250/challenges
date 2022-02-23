@@ -63,3 +63,10 @@ const dogs = [
     { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
     { weight: 32, curFood: 340, owners: ['Michael'] },
 ];
+
+// 1.
+dogs.forEach((dog) => {
+    const food = dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28);
+    return food;
+})
+console.log(dogs);
