@@ -109,17 +109,14 @@ const exactlyAmountFood = dogs.some(dog => dog.curFood === dog.recommendedFood);
 console.log(exactlyAmountFood);
 
 // 6.
-const rightPortionFood = dogs.some(dog => 
+const rightPortionFood = dog => 
     dog.curFood > (dog.recommendedFood * 0.90) && 
-    dog.curFood < (dog.recommendedFood * 1.10)
-);
-console.log(rightPortionFood);
+    dog.curFood < (dog.recommendedFood * 1.10);
+
+console.log(dogs.some(rightPortionFood));
 
 // 7.
-const dogWithGoodAmountOfFood = dogs.filter(dog => 
-    dog.curFood > (dog.recommendedFood * 0.90) && 
-    dog.curFood < (dog.recommendedFood * 1.10)
-);
+const dogWithGoodAmountOfFood = dogs.filter(rightPortionFood);
 console.log(dogWithGoodAmountOfFood);
 
 // 8.
