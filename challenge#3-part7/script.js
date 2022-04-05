@@ -25,3 +25,23 @@ Data car 1: 'Tesla' going at 120 km/h, with a charge of 23%
 GOOD LUCK 😀
 
 */
+
+const Car = function(make, speed) {
+    this.make = make;
+    this.speed = speed;
+};
+
+Car.prototype.accelerate = function() {
+    this.speed += 10;
+    console.log(`${this.make} going at ${this.speed} km/h`);
+}
+
+Car.prototype.brake = function() {
+    this.speed -= 5;
+    console.log(`${this.make} going at ${this.speed} km/h`);
+}
+
+const Ev = function(make, speed, charge) {
+    Car.call(this, make, speed);
+    this.charge = charge;
+}
