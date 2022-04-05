@@ -44,4 +44,7 @@ Car.prototype.brake = function() {
 const Ev = function(make, speed, charge) {
     Car.call(this, make, speed);
     this.charge = charge;
-}
+};
+
+// Asigning the prototype of Car to the prototype of Ev
+Ev.prototype = Object.create(Car.prototype);
