@@ -48,3 +48,23 @@ const Ev = function(make, speed, charge) {
 
 // Asigning the prototype of Car to the prototype of Ev
 Ev.prototype = Object.create(Car.prototype);
+
+// Ev methods
+Ev.prototype.chargeBattery = function(chargeTo) {
+    this.charge = chargeTo;
+}
+
+Ev.prototype.accelerate = function() {
+    this.speed += 20;
+    this.charge--;
+    console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}%`);
+};
+
+const tesla = new Ev('Tesla', 120, 23);
+console.log(tesla);
+tesla.accelerate();
+tesla.brake();
+tesla.chargeBattery(90);
+tesla.accelerate();
+tesla.brake();
+
