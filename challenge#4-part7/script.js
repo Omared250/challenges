@@ -34,6 +34,7 @@ class CarCl {
     brake() {
         this.speed -= 5;
         console.log(`${this.make} going at ${this.speed} km/h`);
+        return this;
     }
 }
 
@@ -47,11 +48,19 @@ class EvCl extends CarCl {
 
     chargeBattery(chargeTo) {
         this.#charge = chargeTo;
+        return this;
     }
 
     accelerate() {
         this.speed +=20;
         this.#charge--;
-        console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}%`);
+        console.log(`${this.make} going at ${this.speed} km/h, with a charge of ${this.#charge}%`);
+        return this;
     }
 }
+
+const rivian = new EvCl('Rivian', 120, 23);
+console.log(rivian);
+rivian.accelerate().chargeBattery(80).brake();
+rivian.accelerate().brake().chargeBattery(90);
+console.log(rivian);
