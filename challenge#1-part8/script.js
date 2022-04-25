@@ -54,13 +54,20 @@ GOOD LUCK 😀 */
 
 const whereAmI = function(lat, lng) {
     fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Problems with the Geocoding ${response.status}`)
+        }
+        return response.json()})
     .then(data => {
         const strLocation = `You are in ${data.city}, ${data.country}`
         console.log(strLocation);
     })
+    .catch(err => {
+        console.error(`Something went wrong 🔥🔥🔥 ${err.message}. Try again!`)
+    })
 }
 
 whereAmI(52.508, 13.381);
-// whereAmI(19.037, 72.873);
-// whereAmI(-33.933, 18.474);
+whereAmI(19.037, 72.873);
+whereAmI(-33.933, 18.474);
