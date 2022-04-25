@@ -50,8 +50,34 @@ Test data:
 
 GOOD LUCK 😀 */
 
-// Where am I function
+// Dom elements
+const btn = document.querySelector('.btn-country');
+const countriesContainer = document.querySelector('.countries');
 
+// Render Functions
+const renderErrors = function(msg) {
+    countriesContainer.insertAdjacentText('beforeend', msg);
+}
+
+
+// Secuence of AJAX call
+const renderCountry = function(data, className) {
+    const html = `
+    <article class="country ${className}">
+        <img class="country__img" src="${data.flag}" />
+        <div class="country__data">
+            <h3 class="country__name">${data.name}</h3>
+        <h4 class="country__region">${data.region}</h4>
+        <p class="country__row"><span>👫</span>${(+data.population / 1000000).toFixed(1)}</p>
+        <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+        <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+        </div>
+    </article>`;
+
+    countriesContainer.insertAdjacentHTML('beforeend', html);
+}
+
+// Where am I function
 const whereAmI = function(lat, lng) {
     fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(response => {
@@ -62,9 +88,21 @@ const whereAmI = function(lat, lng) {
     .then(data => {
         const strLocation = `You are in ${data.city}, ${data.country}`
         console.log(strLocation);
+
+        return fetch(`https://restcountries.com/v2/name/${data.country}`)
     })
+    .then(response2 => {
+        if (!response2.ok) {
+            throw new Error(`Country not found (${response2.status})`);
+        }
+        return response2.json()
+    })
+    .then(data2 => renderCountry(data2[0]))
     .catch(err => {
         console.error(`Something went wrong 🔥🔥🔥 ${err.message}. Try again!`)
+    })
+    .finally(() => {
+        countriesContainer.style.opacity = 1;
     })
 }
 
