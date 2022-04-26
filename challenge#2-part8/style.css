@@ -1,0 +1,26 @@
+/* * {
+    border: 1px black solid;
+} */
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    height: 95vh;
+}
+
+.container {
+    margin: 5% auto;
+    width: 50%;
+    height: 80%;
+    border: 1px black solid;
+}
+
+.hidden {
+    display: none;
+}
+
+.appear {
+    display: block;
+}
