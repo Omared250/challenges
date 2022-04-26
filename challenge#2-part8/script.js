@@ -42,7 +42,7 @@ otherwise images load too fast
 
 GOOD LUCK 😀 */
 
-const imageContainer = document.querySelector('.container');
+const imageContainer = document.querySelector('.images');
 
 const createImage = function(imgPath) {
     return new Promise(function(resolve, reject) {
@@ -59,3 +59,5 @@ const createImage = function(imgPath) {
         })
     })
 }
+
+createImage('img/img-1.jpg')
