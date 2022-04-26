@@ -20,6 +20,7 @@ image element itself. In case there is an error loading the image (listen for
 the'error' event), reject the promise
 
 3. If this part is too tricky for you, just watch the first part of the solution
+
 PART 2
 
 4. Consume the promise using .then and also add an error handler
@@ -40,3 +41,21 @@ image path. Set the network speed to “Fast 3G” in the dev tools Network tab,
 otherwise images load too fast
 
 GOOD LUCK 😀 */
+
+const imageContainer = document.querySelector('.container');
+
+const createImage = function(imgPath) {
+    return new Promise(function(resolve, reject) {
+        const image = document.createElement('img');
+        image.src = imgPath
+
+        image.addEventListener('load', function() {
+            imageContainer.append(image)
+            resolve(image);
+        });
+
+        image.addEventListener('error', function() {
+            reject(new Error('Imagenot found!'))
+        })
+    })
+}
