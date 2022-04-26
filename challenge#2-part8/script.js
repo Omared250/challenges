@@ -44,6 +44,13 @@ GOOD LUCK 😀 */
 
 const imageContainer = document.querySelector('.images');
 
+/// Wair function
+const wait = function(seconds) {
+    return new Promise(function(resolve){
+        setTimeout(resolve, seconds * 1000)
+    });
+};
+
 const createImage = function(imgPath) {
     return new Promise(function(resolve, reject) {
         const image = document.createElement('img');
@@ -55,9 +62,34 @@ const createImage = function(imgPath) {
         });
 
         image.addEventListener('error', function() {
-            reject(new Error('Imagenot found!'))
+            reject(new Error('Image not found!'))
         })
     })
 }
 
+let currentImg;
+
 createImage('img/img-1.jpg')
+.then(res => {
+    currentImg = res;
+    console.log('Image 1 loaded')
+    return wait(2)
+})
+.then(() => {
+    currentImg.style.display = 'none';
+    return createImage('img/img-2.jpg')
+})
+.then(res => {
+    currentImg = res
+    console.log('Image 2 loaded');
+    return wait(2)
+})
+.then(() => {
+    currentImg.style.display = 'none';
+    return createImage('img/img-3.jpg')
+})
+.then(res => {
+    currentImg = res
+    console.log('Image 3 loaded');
+})
+.catch(err => console.error(err));
