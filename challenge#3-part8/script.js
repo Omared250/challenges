@@ -31,3 +31,55 @@ Test data Part 2: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-
 3.jpg']. To test, turn off the 'loadNPause' function
 
 GOOD LUCK 😀 */
+
+const imageContainer = document.querySelector('.images');
+
+/// Wait function
+const wait = function(seconds) {
+    return new Promise(function(resolve){
+        setTimeout(resolve, seconds * 1000)
+    });
+};
+
+const createImage = function(imgPath) {
+    return new Promise(function(resolve, reject) {
+        const image = document.createElement('img');
+        image.src = imgPath
+
+        image.addEventListener('load', function() {
+            imageContainer.append(image)
+            resolve(image);
+        });
+
+        image.addEventListener('error', function() {
+            reject(new Error('Image not found!'))
+        })
+    })
+}
+
+const loadNPause = async function() {
+    try {
+        // Load image 1
+        let img = await createImage('img/img-1.jpg');
+        console.log('Image 1 loaded');
+        await wait(2);
+        img.style.display = 'none';
+
+        // Load image 2
+        img = await createImage('img/img-2.jpg');
+        console.log('Image 2 loaded');
+        await wait(2);
+        img.style.display = 'none';
+
+        // Load image 3
+        img = await createImage('img/img-3.jpg');
+        console.log('Image 3 loaded');
+        await wait(2);
+        img.style.display = 'none';
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+loadNPause();
