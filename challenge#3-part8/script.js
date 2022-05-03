@@ -57,6 +57,7 @@ const createImage = function(imgPath) {
     })
 }
 
+// Using async/await to replace fetch/then to consum the promises
 const loadNPause = async function() {
     try {
         // Load image 1
@@ -82,4 +83,18 @@ const loadNPause = async function() {
     }
 }
 
-loadNPause();
+// loadNPause();
+
+// Using Promise.all to get each image from the promises that return the async/await from the map
+const loadAll = async function(imgArr) {
+    try {
+        const imgs = imgArr.map(async img => await createImage(img))
+        const imgsEl = await Promise.all(imgs);
+
+        imgsEl.forEach(img => img.classList.add('parallel'))
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg'])
